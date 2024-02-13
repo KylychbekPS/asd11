@@ -1,5 +1,6 @@
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -17,18 +18,25 @@ fun App() {
     var text by remember { mutableStateOf("Hello, World!") }
 
     MaterialTheme {
-        Column {
-            Button(onClick = {
-                text = "Hello, Desktop!"
-            }) {
-                Text(text)
-            }
-            Button(onClick = {
-                text = "Hello, Desktop!"
-            }) {
-                Text(text)
-            }
-        }
+       Row {
+           Button(onClick = {
+               text = "Hello, Row!"
+           }) {
+               Text(text)
+           }
+           Column {
+               Button(onClick = {
+                   text = "Hello, Desktop!"
+               }) {
+                   Text(text)
+               }
+               Button(onClick = {
+                   text = "Hello, Button!"
+               }) {
+                   Text(text)
+               }
+           }
+       }
     }
 }
 
